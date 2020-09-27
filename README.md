@@ -3,16 +3,18 @@
 # Facebook API
 
 ## Insallation
+- 移動到你要工作的資料夾打開 git bash
 ```shell=
-git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.git
+$ git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.git
 ```
+***
+
+![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_147003c5e7b1df138f1de6c93df821eb.png)
 - **package you need to install**
     - google-api-python-client
     - oauth2client
 
-***
 
-![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_147003c5e7b1df138f1de6c93df821eb.png)
 ***
 ![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_5c367b466f7ab106e09427d45ea300ce.png)
 
