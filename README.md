@@ -1,9 +1,46 @@
 ![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_d4509ad99b8a6347c33ce990f67a7571.jpg)
-# <font color=#0000FF>Facebook API</font>
+
+# Facebook API
+
+## Insallation
+```shell=
+git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.git
+```
+- **package you need to install**
+    - google-api-python-client
+    - oauth2client
+
+***
+
+![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_147003c5e7b1df138f1de6c93df821eb.png)
+***
+![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_5c367b466f7ab106e09427d45ea300ce.png)
+
+
+***
+- **設定引用library**
+
+![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_e0ae3a01768edf468a5ab44a89e60b35.png)
+
+
+- **測試**
+
+***
+
+![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_036fd11dbee4868765c1fc8514fbda0a.png)
+
+***
+
+
+![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_2b327297eea4f1474d74cc4233ca6764.png)
+
+
+
 
 ## Function List
 - **get  會回傳想要的資訊**
 - **show 只列印出值 不回傳**
+- 
 ## 建議事項
 - **若你對json檔格式熟悉者 僅須使用第一個函示庫 即可得到社團上的參與度資料檔 並自行分析得到自己想要的資訊**
 - **若你對如何處理資料不太熟悉 可以參考API中函式庫提取資訊的寫法 這樣對日後的project想要提取自己想要的資訊 EMOJI COMMENT CONTENT.......會有較大的幫助**
@@ -158,13 +195,4 @@ get_comment_below_by_post_id_comment_id_comment_below_id(dataset, post_id, comme
 
 
 
-
-
-
-
-
-
-
-
- 
 
