@@ -85,7 +85,7 @@ def main(is_download_file_function=False,
     """
 
     print("is_download_file_function: %s " % is_download_file_function)
-    store = file.Storage('token.json')
+    store = file.Storage(os.path.join(os.path.dirname(__file__),'token.json'))
     creds = store.get()
     if not creds or creds.invalid:
         flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
@@ -102,7 +102,6 @@ def main(is_download_file_function=False,
 
 
 if __name__ == '__main__':
-
     main(is_download_file_function=bool(True), download_drive_service_name='aaa.txt', download_file_path=os.getcwd() + '/')
 
 
