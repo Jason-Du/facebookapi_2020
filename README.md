@@ -48,9 +48,17 @@ $ git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.g
 - **若你對如何處理資料不太熟悉 可以參考API中函式庫提取資訊的寫法 這樣對日後的project想要提取自己想要的資訊 EMOJI COMMENT CONTENT.......會有較大的幫助**
 ***
 ### 1. **function 說明 : 下載google cloud 上的 json檔 到本機電腦**
+- 引數 date 輸入日期可以得到對應日期的社團資訊 從 9/29 開始皆有檔案 輸入格式參考如下
 ```python=
-get_json_from_cloud():
+get_json_from_cloud(date)
 ```
+- **範例 取9/29 社團資訊**
+```python=
+get_json_from_cloud(date="0929")
+
+```
+
+
 - >**回傳 一個DICT 的dataset**
 - >**dict的架構如下**
 ```python=
