@@ -88,7 +88,8 @@ def get_comment_below_by_post_id_comment_id_comment_below_id(dataset, post_id, c
 
 if __name__ == '__main__':
 	pass
-	dataset = get_json_from_cloud()
+	dataset = get_json_from_cloud(date="0929")
+	print(dataset)
 	# print(get_user_id(dataset=dataset))
 
 
