@@ -6,7 +6,6 @@ def get_json_from_cloud(date):
 	d.main(is_download_file_function=bool(True), download_drive_service_name=(date+'.json'), download_file_path=os.getcwd() + '/')
 	with open((date+'.json'), 'r', encoding='utf-8') as f:
 		dataset = json.load(f)
-
 	return dataset
 def get_user_id(dataset):
 	'''
