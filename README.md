@@ -196,8 +196,10 @@ show_all_comments_by_post_id(dataset=dataset,post_id=3)
 
 
 - 列印出 貼文編號為POST ID 下 貼文編號為comment id的資訊
+
 ```python=
-show_all_comments_below_by_post_id_comment_id(dataset, post_id, comment_id)
+dataset = get_json_from_cloud(date="1019")
+show_all_comments_below_by_post_id_comment_id(dataset=dataset, post_id=5, comment_id=2)
 ```
 
 
@@ -205,7 +207,8 @@ show_all_comments_below_by_post_id_comment_id(dataset, post_id, comment_id)
 
 - 回傳一個LIST 紀錄了  貼文編號為POST ID 下 貼文編號為comment id的資訊
 ```python=
-get_comment_by_post_id_comment_id(dataset, post_id,omment_id):
+dataset = get_json_from_cloud(date="1019")
+get_comment_by_post_id_comment_id(dataset=dataset, post_id=2,omment_id=3):
 ```
 
 ***
@@ -213,7 +216,25 @@ get_comment_by_post_id_comment_id(dataset, post_id,omment_id):
 - 回傳一個dict 
 - 貼文編號為POST ID 下 貼文編號為comment id 下的回覆留言編號標號為 comment_below_id 的資訊
 ```python=
-get_comment_below_by_post_id_comment_id_comment_below_id(dataset, post_id, comment_id, comment_below_id):
+get_comment_below_by_post_id_comment_id_comment_below_id(dataset=dataset, post_id=0, comment_id=2, comment_below_id=1):
+```
+***
+
+- 回傳一LIST
+- 依據使用者輸入的type 搜索對應的PO文
+- type 可更改為下列選項:
+    - HW Submission
+    - Class Discussion
+    - In-Class Test_ICT2-1
+    - Q&A_Lecture2
+    - Teacher Announcement
+    - TA Announcement
+    - Joint Note
+    - Voting Announcement
+    - Reference
+```python=
+dataset = get_json_from_cloud(date="1019")
+post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
 ```
 
 

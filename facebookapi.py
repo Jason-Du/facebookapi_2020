@@ -1,6 +1,7 @@
 import json
 import download as d
 import os
+import re
 
 def get_json_from_cloud(date):
 	d.main(is_download_file_function=bool(True), download_drive_service_name=(date+'.json'), download_file_path=os.getcwd() + '/')
@@ -80,16 +81,29 @@ def get_comment_below_by_post_id_comment_id_comment_below_id(dataset, post_id, c
 	return dataset['post_info'][post_id]['comment'][comment_id]['comment_below'][comment_below_id]
 
 
-## { id: xxxx,
-##   author_id:xxxx,
-##   data:{
-##   }
-## }
+def get_all_posts_by_type(dataset,type):
+	match_list=[]
+	if type=='Q&A':
+		pattern = '\[ Q&amp;A'
+	else:
+		pattern='\[ '+type
+	# pattern=r'{}'.format(label)
+	for single_post in dataset['post_info']:
+		search_standard=re.match(pattern,str(single_post['post_content']))
+		if (search_standard!=None):
+			match_list.append(single_post)
+			pass
+	return match_list
+
+
 
 if __name__ == '__main__':
-	pass
-	dataset = get_json_from_cloud(date="0929")
-	print(dataset)
+	# pass
+	# dataset = get_json_from_cloud(date="1019")
+	with open(('1019' + '.json'), 'r', encoding='utf-8') as f:
+		dataset = json.load(f)
+	post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
+
 	# print(get_user_id(dataset=dataset))
 
 
@@ -104,7 +118,7 @@ if __name__ == '__main__':
 	#
 	# print(test)
 
-	show_all_comments_by_post_id(dataset=dataset,post_id=4)
+	# show_all_comments_by_post_id(dataset=dataset,post_id=4)
 	# print('------------------')
 	# test=get_comment_by_post_id_comment_id(dataset=dataset,post_id=2,comment_id=5)
 	# print(test)
