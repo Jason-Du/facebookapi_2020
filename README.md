@@ -87,9 +87,9 @@ get_json_from_cloud(date="0929")
 											  'comment_reaction':[emoji_dict ={'emoji_id': '',  'emoji_type': '' }]}]}],
 			
 					  
-						'comment_reaction': [{'emoji_id': '', 'emoji_type': ''  }]
+						'comment_reaction': [{'emoji_id': '', 'emoji_type': ''  }],
 				}]
-	'member_info'=[]
+	'member_info'=[],
         'announcement_info'=[{
 			'poster': '',
 			'post_content': '',
@@ -117,10 +117,7 @@ get_json_from_cloud(date="0929")
 						'comment_reaction': [{'emoji_id': '', 'emoji_type': ''  }]
 				}]
 }
-```
-- >**使用範例**
-```python=
-dataset = get_json_from_cloud()
+
 ```
 
 ***
@@ -153,7 +150,7 @@ get_post_by_post_id(dataset,post_id)
 ```
 - >**使用範例  回傳POSTID=2的PO文資訊**
 ```python=
-dataset = get_json_from_cloud()
+dataset = get_json_from_cloud(date='1019')
 single_post_info=get_post_by_post_id(dataset=dataset,post_id=2)
 ```
 
@@ -170,7 +167,7 @@ get_user_id(dataset):
 ```
 - >**使用範例  回傳社團社員名單 為一個list*
 ```python=
-dataset = get_json_from_cloud()
+dataset = get_json_from_cloud(date='1019')
 get_user_id(dataset=dataset)
 
 ```
@@ -187,7 +184,7 @@ show_all_comments_by_post_id(dataset, post_id):
 ```
 - >**使用範例**
 ```python=
-dataset = get_json_from_cloud()
+dataset = get_json_from_cloud(date='1019')
 show_all_comments_by_post_id(dataset=dataset,post_id=3)
 ```
 - >**RESUT**
