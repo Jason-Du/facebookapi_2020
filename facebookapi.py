@@ -15,16 +15,6 @@ def get_all_user_ids(dataset):
 	'''
 	return dataset['member_info']
 
-def show_all_posts(dataset):
-	"""
-	Show the content of all post
-	:param dataset:dataset file from get_json_from_cloud
-	"""
-	for index, comment in enumerate(dataset['post_info']):
-		print('post id:{}'.format(index))
-		print(dataset['post_info'][index])
-
-
 def get_posts_by_post_id(dataset, post_id):
 	'''
 	:param dataset:
@@ -33,28 +23,7 @@ def get_posts_by_post_id(dataset, post_id):
 	'''
 	return dataset['post_info'][post_id]
 
-
-
-def show_all_comments_by_post_id(dataset, post_id):
-	'''
-	:param dataset: dataset file from get_json_from_cloud
-	:param post_id:
-	:return: NONE
-	'''
-	for index, comment in enumerate(dataset['post_info'][post_id]['comment']):
-		print('post id :{} comment id:{}'.format(post_id, index))
-		print(comment)
-
-
-
 def get_all_main_comments_by_post_id_comment_id(dataset, post_id,comment_id):
-	'''
-
-	:param dataset:
-	:param post_id:
-	:param comment_id:
-	:return:
-	'''
 	match_list=[]
 	for single_comment in dataset['post_info'][post_id]['comment']:
 		pass
@@ -73,6 +42,17 @@ def get_all_below_comments_by_post_id_comment_id(dataset, post_id, comment_id):
 				match_list.append(single_below_comment)
 				pass
 	return match_list
+
+def get_all_post_emojis(dataset):
+	return_list=[]
+	for single_post in dataset['post_info']:
+		emoji_list=[single_emoji for single_emoji in single_post['reaction']]
+		return_list=emoji_list+return_list
+	return return_list
+
+def get_post_emojis_by_post_id(dataset,post_id):
+	return dataset['post_info'][post_id]['reaction']
+
 
 def get_all_posts_by_type(dataset,type):
 	match_list=[]
@@ -95,9 +75,14 @@ if __name__ == '__main__':
 	# dataset = get_json_from_cloud(date="1020")
 	with open(('1020' + '.json'), 'r', encoding='utf-8') as f:
 		dataset = json.load(f)
+	emoji_list=get_all_post_emojis(dataset=dataset)
+	print(emoji_list)
+	# emoji_list=get_post_emojis_by_post_id(dataset=dataset,post_id=1)
+	# print(emoji_list)
 	# post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
+	# print(post_list)
 
 	# print(get_user_id(dataset=dataset))
 	# comment_list=get_all_main_comments_by_post_id_comment_id(dataset=dataset,post_id=1,comment_id='葉羿亭')
-	comment_list = get_all_below_comments_by_post_id_comment_id(dataset=dataset, post_id=1, comment_id='葉羿亭')
-	print(comment_list)
+	# comment_list = get_all_below_comments_by_post_id_comment_id(dataset=dataset, post_id=1, comment_id='Nicolas')
+	# print(comment_list)
