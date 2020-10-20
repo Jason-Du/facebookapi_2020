@@ -23,21 +23,21 @@ def get_posts_by_post_id(dataset, post_id):
 	'''
 	return dataset['post_info'][post_id]
 
-def get_all_main_comments_by_post_id_comment_id(dataset, post_id,comment_id):
+def get_all_main_comments_by_post_id_user_id(dataset, post_id,user_id):
 	match_list=[]
 	for single_comment in dataset['post_info'][post_id]['comment']:
 		pass
-		search_standard=re.match(comment_id,str(single_comment['comment_id']))
+		search_standard=re.match(user_id,str(single_comment['comment_id']))
 		if (search_standard!=None):
 			match_list.append(single_comment)
 			pass
 	return match_list
 
-def get_all_below_comments_by_post_id_comment_id(dataset, post_id, comment_id):
+def get_all_below_comments_by_post_id_user_id(dataset, post_id, user_id):
 	match_list=[]
 	for single_comment in dataset['post_info'][post_id]['comment']:
 		for single_below_comment in single_comment['comment_below']:
-			search_standard2 = re.match(comment_id, str(single_below_comment['comment_id']))
+			search_standard2 = re.match(user_id, str(single_below_comment['comment_id']))
 			if (search_standard2 != None):
 				match_list.append(single_below_comment)
 				pass
