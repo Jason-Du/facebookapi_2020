@@ -2,20 +2,20 @@ import json
 import download as d
 import os
 import re
-
+# for dataset before 1020 you can use show function to list the post id
 def get_json_from_cloud(date):
 	d.main(is_download_file_function=bool(True), download_drive_service_name=(date+'.json'), download_file_path=os.getcwd() + '/')
 	with open((date+'.json'), 'r', encoding='utf-8') as f:
 		dataset = json.load(f)
 	return dataset
-def get_user_id(dataset):
+def get_all_user_ids(dataset):
 	'''
 	:param dataset:dataset file from get_json_from_cloud
 	:return: List for Facebook Club user id
 	'''
 	return dataset['member_info']
 
-def show_all_post(dataset):
+def show_all_posts(dataset):
 	"""
 	Show the content of all post
 	:param dataset:dataset file from get_json_from_cloud
@@ -25,7 +25,7 @@ def show_all_post(dataset):
 		print(dataset['post_info'][index])
 
 
-def get_post_by_post_id(dataset, post_id):
+def get_posts_by_post_id(dataset, post_id):
 	'''
 	:param dataset:
 	:param post_id:
@@ -46,40 +46,33 @@ def show_all_comments_by_post_id(dataset, post_id):
 		print(comment)
 
 
-def get_comment_by_post_id_comment_id(dataset, post_id, comment_id):
+
+def get_all_main_comments_by_post_id_comment_id(dataset, post_id,comment_id):
 	'''
 
 	:param dataset:
 	:param post_id:
-	:return: List ;the comment list according to the post id
+	:param comment_id:
+	:return:
 	'''
-	return dataset['post_info'][post_id]['comment'][comment_id]
+	match_list=[]
+	for single_comment in dataset['post_info'][post_id]['comment']:
+		pass
+		search_standard=re.match(comment_id,str(single_comment['comment_id']))
+		if (search_standard!=None):
+			match_list.append(single_comment)
+			pass
+	return match_list
 
-
-def show_all_comments_below_by_post_id_comment_id(dataset, post_id, comment_id):
-	"""
-
-	:param dataset:
-	:param post_id:
-	:param comment_id:
-	:return: NONE
-	"""
-	for index, comment_below in enumerate(dataset['post_info'][post_id]['comment'][comment_id]['comment_below']):
-		print('Post id {}  comment id:{}  comment below id:{}'.format(post_id, comment_id, index))
-		print(comment_below)
-
-
-def get_comment_below_by_post_id_comment_id_comment_below_id(dataset, post_id, comment_id, comment_below_id):
-	"""
-
-	:param dataset:
-	:param post_id:
-	:param comment_id:
-	:param comment_below_id:
-	:return: DICT;dict according to postid commentid commentbelowid
-	"""
-	return dataset['post_info'][post_id]['comment'][comment_id]['comment_below'][comment_below_id]
-
+def get_all_below_comments_by_post_id_comment_id(dataset, post_id, comment_id):
+	match_list=[]
+	for single_comment in dataset['post_info'][post_id]['comment']:
+		for single_below_comment in single_comment['comment_below']:
+			search_standard2 = re.match(comment_id, str(single_below_comment['comment_id']))
+			if (search_standard2 != None):
+				match_list.append(single_below_comment)
+				pass
+	return match_list
 
 def get_all_posts_by_type(dataset,type):
 	match_list=[]
@@ -99,32 +92,12 @@ def get_all_posts_by_type(dataset,type):
 
 if __name__ == '__main__':
 	# pass
-	# dataset = get_json_from_cloud(date="1019")
-	with open(('1019' + '.json'), 'r', encoding='utf-8') as f:
+	# dataset = get_json_from_cloud(date="1020")
+	with open(('1020' + '.json'), 'r', encoding='utf-8') as f:
 		dataset = json.load(f)
-	post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
+	# post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
 
 	# print(get_user_id(dataset=dataset))
-
-
-	# show_all_post(dataset)
-	#
-	#
-	# print('------------')
-	#
-	#
-	# test=get_post_by_post_id(dataset=dataset,post_id=2)
-	#
-	#
-	# print(test)
-
-	# show_all_comments_by_post_id(dataset=dataset,post_id=4)
-	# print('------------------')
-	# test=get_comment_by_post_id_comment_id(dataset=dataset,post_id=2,comment_id=5)
-	# print(test)
-
-
-	# show_all_comments_below_by_post_id_comment_id(dataset=dataset,post_id=3,comment_id=6)
-	# print('------------------')
-	# test=get_comment_below_by_post_id_comment_id_comment_below_id(dataset=dataset,post_id=3,comment_id=6,comment_below_id=0)
-	# print(test)
+	# comment_list=get_all_main_comments_by_post_id_comment_id(dataset=dataset,post_id=1,comment_id='葉羿亭')
+	comment_list = get_all_below_comments_by_post_id_comment_id(dataset=dataset, post_id=1, comment_id='葉羿亭')
+	print(comment_list)
