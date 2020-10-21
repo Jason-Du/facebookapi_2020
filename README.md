@@ -54,16 +54,14 @@ get_json_from_cloud(date)
 ```
 - **範例 取9/29 社團資訊**
 ```python=
-get_json_from_cloud(date="0929")
-
+dataset=get_json_from_cloud(date="0929")
 ```
-
-
 - >**回傳 一個DICT 的dataset**
 - >**dict的架構如下**
 ```python=
 {
 	'post_info':[{
+                       'post_id':''
 			'poster': '',
 			'post_content': '',
 			'post_share_link': [],
@@ -122,121 +120,127 @@ get_json_from_cloud(date="0929")
 
 ***
 
-
-### 2. **function 說明 : 列印出所有貼文的資訊**
-- > **會先列出post 的 id 再列出該PO文的資訊**
+### 2. **function 說明 : 得到社團內成員清單**
+- > **回傳一LIST**
 ```python=
-show_all_post(dataset):
+get_all_user_ids(dataset):
 ```
 - >**使用範例**
 ```
-    
+dataset = get_json_from_cloud(date='1021')
+userid_list=get_all_user_ids(dataset)
 ```
-- >**RESUT**
-![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_d74cb6fbfce1a57de1decf6d5bbe67bd.png)
-
-
 
 ***
 
 
-### 3. **function 說明 : 回傳所有貼文資訊**
-- > **引數 post id** **dataset**   
-- > **dataset引數放置前面從雲端抓到的dataset**
-- > > **會回傳對應 post 的 PO 文資訊**
-- > > **回傳 一個 dict 的PO 文資訊**
+### 3. **function 說明 : 回傳對應postid貼文資訊**
+- > ***回傳 一個 dict 為 PO 文資訊***   
 ```python=
 get_post_by_post_id(dataset,post_id)
 ```
 - >**使用範例  回傳POSTID=2的PO文資訊**
 ```python=
-dataset = get_json_from_cloud(date='1019')
+dataset = get_json_from_cloud(date='1021')
 single_post_info=get_post_by_post_id(dataset=dataset,post_id=2)
 ```
 
-
-
 ***
 
 
-### 4. **function 說明 : 回傳社團社員名單**
-- > **dataset引數放置前面從雲端抓到的dataset**
-- > > **回傳 一個l ist 的PO 文資訊**
-```python=
-get_user_id(dataset):
-```
-- >**使用範例  回傳社團社員名單 為一個list*
-```python=
-dataset = get_json_from_cloud(date='1019')
-get_user_id(dataset=dataset)
-
-```
-
-
-***
-
-
-### 5. **function 說明 : 列印對應PO文下的comment名單**
-- > **dataset引數放置前面從雲端抓到的dataset**
-- > **列印出PO文ID COMMENT ID 再列印出COMMENT 內容**
-```python=
-show_all_comments_by_post_id(dataset, post_id):
-```
-- >**使用範例**
-```python=
-dataset = get_json_from_cloud(date='1019')
-show_all_comments_by_post_id(dataset=dataset,post_id=3)
-```
-- >**RESUT**
-![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_6bd82f13afa943bb3b4c8655d13089fd.png)
-
-***
-
-### 其他FUNCTION
-
-
-- 列印出 貼文編號為POST ID 下 貼文編號為comment id的資訊
-
-```python=
-dataset = get_json_from_cloud(date="1019")
-show_all_comments_below_by_post_id_comment_id(dataset=dataset, post_id=5, comment_id=2)
-```
-
-
-***
-
-- 回傳一個LIST 紀錄了  貼文編號為POST ID 下 貼文編號為comment id的資訊
-```python=
-dataset = get_json_from_cloud(date="1019")
-get_comment_by_post_id_comment_id(dataset=dataset, post_id=2,omment_id=3):
-```
-
-***
-
-- 回傳一個dict 
-- 貼文編號為POST ID 下 貼文編號為comment id 下的回覆留言編號標號為 comment_below_id 的資訊
-```python=
-get_comment_below_by_post_id_comment_id_comment_below_id(dataset=dataset, post_id=0, comment_id=2, comment_below_id=1):
-```
-***
-
-- 回傳一LIST
-- 依據使用者輸入的type 搜索對應的PO文
+### 4. **function 說明 : 回傳對應post type貼文資訊**
+- > **回傳 一個list 的PO 文資訊**
+- > 依據使用者輸入的type 搜索對應的PO文
 - type 可更改為下列選項:
     - HW Submission
     - Class Discussion
-    - In-Class Test_ICT2-1
-    - Q&A_Lecture2
+    - In-Class Test
+    - Q&A_Lecture
     - Teacher Announcement
     - TA Announcement
     - Joint Note
     - Voting Announcement
     - Reference
 ```python=
-dataset = get_json_from_cloud(date="1019")
+get_all_posts_by_type(dataset,type)
+```
+- >**使用範例  回傳 post-type 為 Q&A 的PO文資訊*
+```python=
+dataset = get_json_from_cloud(date='1021')
 post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
 ```
+***
 
+### 5. **function 說明 : 回傳postid對應PO文下的主留言資訊**
+- > **回傳一個LIST**
+
+```python=
+get_all_main_comments_by_post_id_user_id(dataset, post_id,user_id)
+```
+- >**使用範例**
+```python=
+dataset = get_json_from_cloud(date='1021')
+comment_list=get_all_main_comments_by_post_id_user_id(dataset=dataset,post_id=1,user_id='Nicolas Hei')
+```
+
+***
+### 6. **function 說明 : 回傳postid對應PO文下的 主留言下的留言 資訊**
+- > **回傳一個LIST**
+```python=
+get_all_below_comments_by_post_id_user_id(dataset, post_id,user_id)
+```
+- >**使用範例**
+```python=
+dataset = get_json_from_cloud(date='1021')
+comment_list=get_all_below_comments_by_post_id_user_id(dataset=dataset, post_id=1, user_id='Nicolas Hei')
+```
+
+***
+### 7. **function 說明 : 回傳post id 對應 PO文下的 表情符號資訊 資訊**
+- > **回傳一個LIST**
+```python=
+get_post_emojis_by_post_id(dataset,post_id)
+```
+- >**使用範例**
+```python=
+dataset = get_json_from_cloud(date='1021')
+emoji_list=get_post_emojis_by_post_id(dataset=dataset,post_id=1)
+```
+***
+### 8. **function 說明 : 回傳 userid 在社團貼文按表情符號資訊 資訊**
+- > **回傳一個DICT**
+```python=
+get_all_posts_emojis_times_by_user_id(dataset,user_id)
+```
+- >**使用範例**
+```python=
+dataset = get_json_from_cloud(date='1021')
+get_all_posts_emojis_times_by_user_id(dataset=dataset,user_id='Nicolas Hei')
+```
+***
+### 9. **function 說明 : 回傳 userid 在社團貼文留言次數 資訊**
+- > **回傳一個DICT**
+```python=
+get_post_user_comments_times
+```
+- >**使用範例**
+```python=
+dataset = get_json_from_cloud(date='1021')
+data=get_post_user_comments_times(dataset=dataset)
+print(data)
+```
+***
+### 10. **function 說明 : 回傳 userid 在社團貼文按表情符號次數 資訊**
+- > **回傳一個DICT**
+```python=
+get_user_emoji_times_by_user_id(dataset,user_id)
+```
+- >**使用範例**
+```python=
+dataset = get_json_from_cloud(date='1021')
+get_user_emoji_times_by_user_id(dataset=dataset,user_id='高士鈞')
+```
+***
 
 
 
