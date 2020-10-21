@@ -78,13 +78,13 @@ get_json_from_cloud(date="0929")
 						'comment_gif_num': '',
 						'comment_img_num': '',
 						'comment_sticker': '',
-						'comment_below':[comment_below_dict = {'comment_id':'',
-											  'co mment_content':'',
+						'comment_below':[{'comment_id':'',
+											  'comment_content':'',
 											  'comment_link_num':'',
 											  'comment_gif_num':'',
 											  'comment_img_num':'',
 											  'comment_sticker':'',
-											  'comment_reaction':[emoji_dict ={'emoji_id': '',  'emoji_type': '' }]}]}],
+											  'comment_reaction':[{'emoji_id': '',  'emoji_type': '' }]}]}],
 			
 					  
 						'comment_reaction': [{'emoji_id': '', 'emoji_type': ''  }],
@@ -106,7 +106,7 @@ get_json_from_cloud(date="0929")
 						'comment_img_num': '',
 						'comment_sticker': '',
 						'comment_below':[comment_below_dict = {'comment_id':'',
-											  'co mment_content':'',
+											  'comment_content':'',
 											  'comment_link_num':'',
 											  'comment_gif_num':'',
 											  'comment_img_num':'',
@@ -129,8 +129,8 @@ get_json_from_cloud(date="0929")
 show_all_post(dataset):
 ```
 - >**使用範例**
-```python=
-show_all_post(dataset)
+```
+    
 ```
 - >**RESUT**
 ![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_d74cb6fbfce1a57de1decf6d5bbe67bd.png)
