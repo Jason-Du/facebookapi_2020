@@ -218,7 +218,7 @@ dataset = get_json_from_cloud(date='1021')
 get_all_posts_emojis_times_by_user_id(dataset=dataset,user_id='Nicolas Hei')
 ```
 ***
-### 9. **function 說明 : 回傳 userid 在社團貼文留言次數 資訊**
+### 9. **function 說明 : 回傳 所有 userid 在社團貼文留言次數 資訊**
 - > **回傳一個DICT**
 ```python=
 get_post_user_comments_times

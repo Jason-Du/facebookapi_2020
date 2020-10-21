@@ -31,32 +31,14 @@ def get_all_posts_by_type(dataset,type):
 	return match_list
 
 def get_all_main_comments_by_post_id_user_id(dataset, post_id,user_id):
-	match_list=[]
-	for single_comment in dataset['post_info'][post_id]['comment']:
-		pass
-		search_standard=re.match(user_id,str(single_comment['comment_id']))
-		if (search_standard!=None):
-			match_list.append(single_comment)
-			pass
+	match_list=[single_comment for single_comment in dataset['post_info'][post_id]['comment'] if single_comment['comment_id']==user_id]
 	return match_list
 
 def get_all_below_comments_by_post_id_user_id(dataset, post_id,user_id):
 	match_list=[]
 	for single_comment in dataset['post_info'][post_id]['comment']:
-		for single_below_comment in single_comment['comment_below']:
-			search_standard2 = re.match(user_id, str(single_below_comment['comment_id']))
-			if (search_standard2 != None):
-				match_list.append(single_below_comment)
-				pass
+		match_list=match_list+[single_below_comment for single_below_comment in single_comment['comment_below'] if single_below_comment['comment_id']==user_id]
 	return match_list
-
-
-# def get_all_posts_emojis(dataset):
-# 	return_list=[]
-# 	for single_post in dataset['post_info']:
-# 		emoji_list=[single_emoji for single_emoji in single_post['reaction']]
-# 		return_list=emoji_list+return_list
-# 	return return_list
 
 def get_post_emojis_by_post_id(dataset,post_id):
 	return dataset['post_info'][post_id]['reaction']
@@ -68,7 +50,7 @@ def get_all_posts_emojis_times_by_user_id(dataset,user_id):
 		allemoji_list=allemoji_list+[single_emoji['emoji_type']  for single_emoji in single_post['reaction']if single_emoji['emoji_id']==user_id]
 	return Counter(allemoji_list)
 
-def get_post_user_comments_times(dataset):
+def get_all_user_comments_times(dataset):
 	comment_list1=[]
 	comment_list2=[]
 	for single_post in dataset['post_info']:
@@ -100,6 +82,8 @@ def get_user_emoji_times_by_user_id(dataset,user_id):
 
 
 
+
+
 if __name__ == '__main__':
 	pass
 	# dataset = get_json_from_cloud(date="1021")
@@ -123,5 +107,5 @@ if __name__ == '__main__':
 
 	# print(get_user_id(dataset=dataset))
 	# comment_list=get_all_main_comments_by_post_id_user_id(dataset=dataset,post_id=1,user_id='Nicolas Hei')
-	# # comment_list=get_all_below_comments_by_post_id_user_id(dataset=dataset, post_id=1, user_id='Nicolas Hei')
-	# print(comment_list)
+	comment_list=get_all_below_comments_by_post_id_user_id(dataset=dataset, post_id=1, user_id='Nicolas Hei')
+	print(len(comment_list))
