@@ -50,7 +50,7 @@ def get_all_posts_emojis_times_by_user_id(dataset,user_id):
 		allemoji_list=allemoji_list+[single_emoji['emoji_type']  for single_emoji in single_post['reaction']if single_emoji['emoji_id']==user_id]
 	return Counter(allemoji_list)
 
-def get_all_user_comments_times(dataset):
+def get_all_post_all_user_comments_times(dataset):
 	comment_list1=[]
 	comment_list2=[]
 	for single_post in dataset['post_info']:
@@ -85,27 +85,24 @@ def get_user_emoji_times_by_user_id(dataset,user_id):
 
 
 if __name__ == '__main__':
-	pass
-	# dataset = get_json_from_cloud(date="1021")
-	with open(('1021' + '.json'), 'r', encoding='utf-8') as f:
-		dataset = json.load(f)
-	# print(dataset)
-	# print(get_user_emoji_times_by_user_id(dataset=dataset,user_id='高士鈞'))
+	# with open(('1021' + '.json'), 'r', encoding='utf-8') as f:
+	# 	dataset = json.load(f)
 
+	dataset = get_json_from_cloud(date='1021')
 
-	# data=get_post_user_comments_times(dataset=dataset)
-	# print(data)
-
-	# emoji_list=get_all_posts_emojis(dataset=dataset)
-	# print(emoji_list)
-	# emoji_list=get_all_posts_emojis_times_by_user_id(dataset=dataset,user_id='劉巧媺')
-	# print(emoji_list)
-	# emoji_list=get_post_emojis_by_post_id(dataset=dataset,post_id=1)
-	# print(emoji_list)
-	# post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
+	# single_post_info = get_posts_by_post_id(dataset=dataset, post_id=2)
+	# print(single_post_info)
+	# userid_list = get_all_user_ids(dataset)
+	# print(userid_list)
+	# post_list = get_all_posts_by_type(dataset=dataset, type='Q&A')
 	# print(post_list)
-
-	# print(get_user_id(dataset=dataset))
-	# comment_list=get_all_main_comments_by_post_id_user_id(dataset=dataset,post_id=1,user_id='Nicolas Hei')
-	comment_list=get_all_below_comments_by_post_id_user_id(dataset=dataset, post_id=1, user_id='Nicolas Hei')
-	print(len(comment_list))
+	# comment_list = get_all_main_comments_by_post_id_user_id(dataset=dataset, post_id=1, user_id='Nicolas Hei')
+	# print(comment_list)
+	# emoji_list = get_post_emojis_by_post_id(dataset=dataset, post_id=1)
+	# print(emoji_list)
+	# user_emojitimes = get_all_posts_emojis_times_by_user_id(dataset=dataset, user_id='Nicolas Hei')
+	# print(user_emojitimes)
+	# data = get_all_post_all_user_comments_times(dataset=dataset)
+	# print(data)
+	# allemojitimes = get_user_emoji_times_by_user_id(dataset=dataset, user_id='高士鈞')
+	# print(allemojitimes)

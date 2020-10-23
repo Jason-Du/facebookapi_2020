@@ -52,9 +52,9 @@ $ git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.g
 ```python=
 get_json_from_cloud(date)
 ```
-- **範例 取9/29 社團資訊**
+- **範例 取10/21 社團資訊**
 ```python=
-dataset=get_json_from_cloud(date="0929")
+dataset=get_json_from_cloud(date="1021")
 ```
 - >**回傳 一個DICT 的dataset**
 - >**dict的架構如下**
@@ -129,6 +129,7 @@ get_all_user_ids(dataset):
 ```
 dataset = get_json_from_cloud(date='1021')
 userid_list=get_all_user_ids(dataset)
+print(userid_list)
 ```
 
 ***
@@ -137,12 +138,13 @@ userid_list=get_all_user_ids(dataset)
 ### 3. **function 說明 : 回傳對應postid貼文資訊**
 - > ***回傳 一個 dict 為 PO 文資訊***   
 ```python=
-get_post_by_post_id(dataset,post_id)
+get_posts_by_post_id(dataset,post_id)
 ```
 - >**使用範例  回傳POSTID=2的PO文資訊**
 ```python=
 dataset = get_json_from_cloud(date='1021')
-single_post_info=get_post_by_post_id(dataset=dataset,post_id=2)
+single_post_info=get_posts_by_post_id(dataset=dataset,post_id=2)
+print(single_post_info)
 ```
 
 ***
@@ -168,6 +170,7 @@ get_all_posts_by_type(dataset,type)
 ```python=
 dataset = get_json_from_cloud(date='1021')
 post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
+print(post_list)
 ```
 ***
 
@@ -175,12 +178,13 @@ post_list=get_all_posts_by_type(dataset=dataset,type='Q&A')
 - > **回傳一個LIST**
 
 ```python=
-get_all_main_comments_by_post_id_user_id(dataset, post_id,user_id)
+main_comment=get_all_main_comments_by_post_id_user_id(dataset, post_id,user_id)
 ```
 - >**使用範例**
 ```python=
 dataset = get_json_from_cloud(date='1021')
 comment_list=get_all_main_comments_by_post_id_user_id(dataset=dataset,post_id=1,user_id='Nicolas Hei')
+print(comment_list)
 ```
 
 ***
@@ -193,6 +197,7 @@ get_all_below_comments_by_post_id_user_id(dataset, post_id,user_id)
 ```python=
 dataset = get_json_from_cloud(date='1021')
 comment_list=get_all_below_comments_by_post_id_user_id(dataset=dataset, post_id=1, user_id='Nicolas Hei')
+print(comment_list)
 ```
 
 ***
@@ -205,6 +210,7 @@ get_post_emojis_by_post_id(dataset,post_id)
 ```python=
 dataset = get_json_from_cloud(date='1021')
 emoji_list=get_post_emojis_by_post_id(dataset=dataset,post_id=1)
+print(emoji_list)
 ```
 ***
 ### 8. **function 說明 : 回傳 userid 在社團貼文按表情符號資訊 資訊**
@@ -215,18 +221,19 @@ get_all_posts_emojis_times_by_user_id(dataset,user_id)
 - >**使用範例**
 ```python=
 dataset = get_json_from_cloud(date='1021')
-get_all_posts_emojis_times_by_user_id(dataset=dataset,user_id='Nicolas Hei')
+user_emojitimes=get_all_posts_emojis_times_by_user_id(dataset=dataset,user_id='Nicolas Hei')
+print(user_emojitimes)
 ```
 ***
 ### 9. **function 說明 : 回傳 所有 userid 在社團貼文留言次數 資訊**
 - > **回傳一個DICT**
 ```python=
-get_post_user_comments_times
+get_all_post_all_user_comments_times(dataset=dataset)
 ```
 - >**使用範例**
 ```python=
 dataset = get_json_from_cloud(date='1021')
-data=get_post_user_comments_times(dataset=dataset)
+data = get_all_post_all_user_comments_times(dataset=dataset)
 print(data)
 ```
 ***
@@ -238,7 +245,8 @@ get_user_emoji_times_by_user_id(dataset,user_id)
 - >**使用範例**
 ```python=
 dataset = get_json_from_cloud(date='1021')
-get_user_emoji_times_by_user_id(dataset=dataset,user_id='高士鈞')
+allemojitimes=get_user_emoji_times_by_user_id(dataset=dataset,user_id='高士鈞')
+print(allemojitimes)
 ```
 ***
 
