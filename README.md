@@ -40,9 +40,6 @@ $ git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.g
 
 
 ## Function List
-- **get  會回傳想要的資訊**
-- **show 只列印出值 不回傳**
-- 
 ## 建議事項
 - **若你對json檔格式熟悉者 僅須使用第一個函示庫 即可得到社團上的參與度資料檔 並自行分析得到自己想要的資訊**
 - **若你對如何處理資料不太熟悉 可以參考API中函式庫提取資訊的寫法 這樣對日後的project想要提取自己想要的資訊 EMOJI COMMENT CONTENT.......會有較大的幫助**
@@ -249,6 +246,8 @@ allemojitimes=get_user_emoji_times_by_user_id(dataset=dataset,user_id='高士鈞
 print(allemojitimes)
 ```
 ***
+##BUG
+10/28 10/29 dataset emoji 反爬蟲 
 
 
 
