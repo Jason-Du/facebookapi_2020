@@ -9,7 +9,7 @@ id可能有殘缺 舉例
 Nicolas Hei dataset 的id 為Nicolas
 
 
-- 10/27~ 之後 dataset  ['reaction'] 相關資料會有錯誤先不要抓取
+- 10/27~ 之後 reaction 相關資料會有錯誤先不要抓取
 
 ## Insallation
 - 移動到你要工作的資料夾打開 git bash
