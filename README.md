@@ -1,6 +1,15 @@
 ![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_d4509ad99b8a6347c33ce990f67a7571.jpg)
 
 # Facebook API
+10/21~10/26 這段期間 的dataset 皆沒有問題
+##BUG note
+- 9/29~10/21 dataset FB名子 id 為 英文者
+
+id可能有殘缺 舉例
+Nicolas Hei dataset 的id 為Nicolas
+
+
+- 10/27~ 之後 dataset  ['reaction'] 相關資料會有錯誤先不要抓取
 
 ## Insallation
 - 移動到你要工作的資料夾打開 git bash
@@ -246,8 +255,7 @@ allemojitimes=get_user_emoji_times_by_user_id(dataset=dataset,user_id='高士鈞
 print(allemojitimes)
 ```
 ***
-##BUG
-10/28 10/29 dataset emoji 反爬蟲 
+
 
 
 
