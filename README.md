@@ -234,12 +234,12 @@ print(user_emojitimes)
 ### 9. **function 說明 : 回傳 所有 userid 在社團貼文留言次數 資訊**
 - > **回傳一個DICT**
 ```python=
-get_all_post_all_user_comments_times(dataset=dataset)
+get_all_posts_all_user_comments_times(dataset=dataset)
 ```
 - >**使用範例**
 ```python=
 dataset = get_json_from_cloud(date='1021')
-data = get_all_post_all_user_comments_times(dataset=dataset)
+data = get_all_posts_all_user_comments_times(dataset=dataset)
 print(data)
 ```
 ***

@@ -50,7 +50,7 @@ def get_all_posts_emojis_times_by_user_id(dataset,user_id):
 		allemoji_list=allemoji_list+[single_emoji['emoji_type']  for single_emoji in single_post['reaction']if single_emoji['emoji_id']==user_id]
 	return Counter(allemoji_list)
 
-def get_all_post_all_user_comments_times(dataset):
+def get_all_posts_all_user_comments_times(dataset):
 	comment_list1=[]
 	comment_list2=[]
 	for single_post in dataset['post_info']:
@@ -102,7 +102,7 @@ if __name__ == '__main__':
 	# print(emoji_list)
 	# user_emojitimes = get_all_posts_emojis_times_by_user_id(dataset=dataset, user_id='Nicolas Hei')
 	# print(user_emojitimes)
-	# data = get_all_post_all_user_comments_times(dataset=dataset)
+	# data = get_all_posts_all_user_comments_times(dataset=dataset)
 	# print(data)
 	# allemojitimes = get_user_emoji_times_by_user_id(dataset=dataset, user_id='高士鈞')
 	# print(allemojitimes)
