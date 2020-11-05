@@ -243,7 +243,7 @@ data = get_all_posts_all_user_comments_times(dataset=dataset)
 print(data)
 ```
 ***
-### 10. **function 說明 : 回傳 userid 在社團貼文按表情符號次數 資訊**
+### 10. **function 說明 : 回傳 userid 在社團按表情符號次數 資訊**
 - > **回傳一個DICT**
 ```python=
 get_user_emoji_times_by_user_id(dataset,user_id)
