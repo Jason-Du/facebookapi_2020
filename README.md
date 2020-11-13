@@ -258,7 +258,17 @@ allemojitimes=get_user_emoji_times_by_user_id(dataset=dataset,user_id='高士鈞
 print(allemojitimes)
 ```
 ***
-
+### 11. **function 說明 : 回傳正確無誤的dataset日期**
+- > **回傳一個LIST**
+```python=
+get_fine_dataset_date()
+```
+- >**使用範例**
+```python=
+date_list=get_fine_dataset_date()
+print(date_list)
+```
+***
 
 
 

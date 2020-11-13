@@ -79,6 +79,12 @@ def get_user_emoji_times_by_user_id(dataset,user_id):
 			for singlecommentbelow in singlecomment['comment_below']:
 				allemoji_list3 = allemoji_list3+[singleemojibelow['emoji_type'] for singleemojibelow in singlecommentbelow['comment_reaction'] if singleemojibelow['emoji_id'] == user_id]
 	return Counter(allemoji_list+allemoji_list2+allemoji_list3)
+def get_fine_dataset_date():
+	d.main(is_download_file_function=bool(True), download_drive_service_name=('fine_dataset.json'), download_file_path=os.getcwd() + '/')
+	with open(('fine_dataset.json'), 'r', encoding='utf-8') as f:
+		date_list = json.load(f)
+	# date_list=['1021','1022','1023','1024','1025','1026','1027','1110','1011','1012']
+	return date_list
 
 
 
@@ -87,9 +93,7 @@ def get_user_emoji_times_by_user_id(dataset,user_id):
 if __name__ == '__main__':
 	# with open(('1021' + '.json'), 'r', encoding='utf-8') as f:
 	# 	dataset = json.load(f)
-
 	dataset = get_json_from_cloud(date='1021')
-
 	# single_post_info = get_posts_by_post_id(dataset=dataset, post_id=2)
 	# print(single_post_info)
 	# userid_list = get_all_user_ids(dataset)
