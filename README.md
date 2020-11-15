@@ -1,12 +1,15 @@
 ![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_d4509ad99b8a6347c33ce990f67a7571.jpg)
 
 # Facebook API
-10/21~10/26 這段期間 的dataset 皆沒有問題
-
-11/10~11/12 資料皆沒有問題
-
-
+新增 新的function   用來讓同學知道哪幾天的dataset是不會有問題的  詳細說明請下滑 有詳細說明
+```python=
+get_fine_dataset_date()
+```
 ##BUG note
+- 10/21~10/26 這段期間 的dataset 皆沒有問題
+
+- 11/10~11/12 資料皆沒有問題
+
 - 9/29~10/21 dataset FB名子 id 為 英文者
 
 id可能有殘缺 舉例
