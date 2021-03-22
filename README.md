@@ -1,6 +1,6 @@
 ![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_d4509ad99b8a6347c33ce990f67a7571.jpg)
-
-## Insallation
+# <center><font color=#0000FF>CTPS Facebook Web Crawler</font></center>
+## <center><font color=#008000>Insallation</font></center>
 - 移動到你要工作的資料夾打開 git bash
 ```shell=
 $ git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.git
@@ -37,11 +37,11 @@ $ git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.g
 
 
 
-## Function List
+## <center><font color=#008000>Function List</font></center>
 ## 建議事項
 - **若你對json檔格式熟悉者 僅須使用第一個函示庫 即可得到社團上的參與度資料檔 並自行分析得到自己想要的資訊**
 - **若你對如何處理資料不太熟悉 可以參考API中函式庫提取資訊的寫法 這樣對日後的project想要提取自己想要的資訊 EMOJI COMMENT CONTENT.......會有較大的幫助**
-### 0. **function 說明 : 回傳正確無誤的dataset日期**
+### <center>0. **function 說明 : 回傳正確無誤的dataset日期**</center>
 - > **回傳一個LIST**
 ```python=
 get_fine_dataset_date()
@@ -53,7 +53,7 @@ print(date_list)
 ```
 ***
 ***
-### 1. **function 說明 : 下載google cloud 上的 json檔 到本機電腦**
+### <center>1. **function 說明 : 下載google cloud 上的 json檔 到本機電腦**</center>
 - 引數 date 輸入日期可以得到對應日期的社團資訊 從 9/29 開始皆有檔案 輸入格式參考如下
 ```python=
 get_json_from_cloud(date)
@@ -126,7 +126,7 @@ dataset=get_json_from_cloud(date="1021")
 
 ***
 
-### 2. **function 說明 : 得到社團內成員清單**
+### <center>2. **function 說明 : 得到社團內成員清單**</center>
 - > **回傳一LIST**
 ```python=
 get_all_user_ids(dataset):
@@ -141,7 +141,7 @@ print(userid_list)
 ***
 
 
-### 3. **function 說明 : 回傳對應postid貼文資訊**
+### <center>3. **function 說明 : 回傳對應postid貼文資訊**</center>
 - > ***回傳 一個 dict 為 PO 文資訊***   
 ```python=
 get_posts_by_post_id(dataset,post_id)
@@ -156,7 +156,7 @@ print(single_post_info)
 ***
 
 
-### 4. **function 說明 : 回傳對應post type貼文資訊**
+###<center> 4. **function 說明 : 回傳對應post type貼文資訊**</center>
 - > **回傳 一個list 的PO 文資訊**
 - > 依據使用者輸入的type 搜索對應的PO文
 - type 可更改為下列選項:
@@ -180,7 +180,7 @@ print(post_list)
 ```
 ***
 
-### 5. **function 說明 : 回傳postid對應PO文下的主留言資訊**
+### <center>5. **function 說明 : 回傳postid對應PO文下的主留言資訊**</center>
 - > **回傳一個LIST**
 
 ```python=
@@ -194,7 +194,7 @@ print(comment_list)
 ```
 
 ***
-### 6. **function 說明 : 回傳postid對應PO文下的 主留言下的留言 資訊**
+### <center>6. **function 說明 : 回傳postid對應PO文下的 主留言下的留言 資訊**</center>
 - > **回傳一個LIST**
 ```python=
 get_all_below_comments_by_post_id_user_id(dataset, post_id,user_id)
@@ -207,7 +207,7 @@ print(comment_list)
 ```
 
 ***
-### 7. **function 說明 : 回傳post id 對應 PO文下的 表情符號資訊 資訊**
+### <center>7. **function 說明 : 回傳post id 對應 PO文下的 表情符號資訊 資訊**</center>
 - > **回傳一個LIST**
 ```python=
 get_post_emojis_by_post_id(dataset,post_id)
@@ -219,7 +219,7 @@ emoji_list=get_post_emojis_by_post_id(dataset=dataset,post_id=1)
 print(emoji_list)
 ```
 ***
-### 8. **function 說明 : 回傳 userid 在社團貼文按表情符號資訊 資訊**
+### <center>8. **function 說明 : 回傳 userid 在社團貼文按表情符號資訊 資訊**</center>
 - > **回傳一個DICT**
 ```python=
 get_all_posts_emojis_times_by_user_id(dataset,user_id)
@@ -231,7 +231,7 @@ user_emojitimes=get_all_posts_emojis_times_by_user_id(dataset=dataset,user_id='N
 print(user_emojitimes)
 ```
 ***
-### 9. **function 說明 : 回傳 所有 userid 在社團貼文留言次數 資訊**
+### <center>9. **function 說明 : 回傳 所有 userid 在社團貼文留言次數 資訊**</center>
 - > **回傳一個DICT**
 ```python=
 get_all_posts_all_user_comments_times(dataset=dataset)
@@ -243,7 +243,7 @@ data = get_all_posts_all_user_comments_times(dataset=dataset)
 print(data)
 ```
 ***
-### 10. **function 說明 : 回傳 userid 在社團按表情符號次數 資訊**
+### <center>10. **function 說明 : 回傳 userid 在社團按表情符號次數 資訊**</center>
 - > **回傳一個DICT**
 ```python=
 get_user_emoji_times_by_user_id(dataset,user_id)
@@ -258,7 +258,7 @@ print(allemojitimes)
 
 
 
-
+###### tags: `CTPS_2021_web_crawler`
 
 
 
