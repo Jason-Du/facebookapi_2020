@@ -1,22 +1,5 @@
 ![](https://codimd.s3.shivering-isles.com/demo/uploads/upload_d4509ad99b8a6347c33ce990f67a7571.jpg)
 
-# Facebook API
-新增 新的function   用來讓同學知道哪幾天的dataset是不會有問題的  詳細說明請下滑 有詳細說明
-```python=
-get_fine_dataset_date()
-```
-##BUG note
-- 10/21~10/26 這段期間 的dataset 皆沒有問題
-
-- 11/10~11/12 資料皆沒有問題
-
-- 9/29~10/21 dataset FB名子 id 為 英文者
-
-id可能有殘缺 舉例
-Nicolas Hei dataset 的id 為Nicolas
-
-- 10/27~11/09  reaction 相關資料會有錯誤先不要抓取
-
 ## Insallation
 - 移動到你要工作的資料夾打開 git bash
 ```shell=
@@ -58,6 +41,17 @@ $ git clone https://playlab.computing.ncku.edu.tw:4001/khduh/facebook_api_file.g
 ## 建議事項
 - **若你對json檔格式熟悉者 僅須使用第一個函示庫 即可得到社團上的參與度資料檔 並自行分析得到自己想要的資訊**
 - **若你對如何處理資料不太熟悉 可以參考API中函式庫提取資訊的寫法 這樣對日後的project想要提取自己想要的資訊 EMOJI COMMENT CONTENT.......會有較大的幫助**
+### 0. **function 說明 : 回傳正確無誤的dataset日期**
+- > **回傳一個LIST**
+```python=
+get_fine_dataset_date()
+```
+- >**使用範例**
+```python=
+date_list=get_fine_dataset_date()
+print(date_list)
+```
+***
 ***
 ### 1. **function 說明 : 下載google cloud 上的 json檔 到本機電腦**
 - 引數 date 輸入日期可以得到對應日期的社團資訊 從 9/29 開始皆有檔案 輸入格式參考如下
@@ -261,17 +255,7 @@ allemojitimes=get_user_emoji_times_by_user_id(dataset=dataset,user_id='高士鈞
 print(allemojitimes)
 ```
 ***
-### 11. **function 說明 : 回傳正確無誤的dataset日期**
-- > **回傳一個LIST**
-```python=
-get_fine_dataset_date()
-```
-- >**使用範例**
-```python=
-date_list=get_fine_dataset_date()
-print(date_list)
-```
-***
+
 
 
 
