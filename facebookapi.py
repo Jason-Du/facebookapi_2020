@@ -94,6 +94,7 @@ if __name__ == '__main__':
 	# with open(('1021' + '.json'), 'r', encoding='utf-8') as f:
 	# 	dataset = json.load(f)
 	dataset = get_json_from_cloud(date='0322')
+
 	# single_post_info = get_posts_by_post_id(dataset=dataset, post_id=2)
 	# print(single_post_info)
 	# userid_list = get_all_user_ids(dataset)
